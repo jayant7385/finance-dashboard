@@ -12,7 +12,6 @@ function Insights() {
     );
   }
 
-  // ===== 1. Highest Spending Category =====
   const expenseMap = {};
 
   transactions.forEach((t) => {
@@ -31,11 +30,10 @@ function Insights() {
 
   const highestAmount = expenseMap[highestCategory] || 0;
 
-  // ===== 2. Monthly Comparison =====
   const monthly = {};
 
   transactions.forEach((t) => {
-    const month = t.date.slice(0, 7); // YYYY-MM
+    const month = t.date.slice(0, 7); 
 
     if (!monthly[month]) {
       monthly[month] = { income: 0, expense: 0 };
@@ -72,7 +70,6 @@ function Insights() {
     `;
   }
 
-  // ===== 3. Useful Observation =====
   const totalIncome = transactions
     .filter((t) => t.type === "income")
     .reduce((sum, t) => sum + t.amount, 0);
