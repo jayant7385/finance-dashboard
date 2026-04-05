@@ -24,7 +24,6 @@ ChartJS.register(
 function Charts() {
   const { transactions } = useApp();
 
-  // ===== BALANCE TREND =====
   const sorted = [...transactions].sort((a, b) =>
     a.date.localeCompare(b.date)
   );
@@ -53,7 +52,6 @@ function Charts() {
     ],
   };
 
-  // ===== SPENDING BREAKDOWN =====
   const categoryMap = {};
 
   transactions.forEach((t) => {
@@ -75,13 +73,11 @@ function Charts() {
 
   return (
     <div className="charts-grid">
-      {/* Line Chart */}
       <div className="box">
         <h3>Balance Trend</h3>
         <Line data={lineData} />
       </div>
-
-      {/* Pie Chart */}
+      
       <div className="box">
         <h3>Spending Breakdown</h3>
         <Pie data={pieData} />
